@@ -18,27 +18,20 @@ import javax.validation.constraints.Size;
 public class UserDto {
 
     public UserDto(User user) {
+        this.id = user.getId();
         this.userName = user.getUserName();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.email = user.getEmail();
     }
 
-    @NotEmpty(message = "User name is mandatory.")
-    @Size(min = 5, max = 10, message = "User name should have min 5 max 10 characters.")
+    private String id;
     private String userName;
 
-    @NotBlank(message = "Firstname is mandatory field!")
-    @Size(max = 50, message = "Firstname should be smaller than {max} characters")
     private String firstName;
 
-    @NotBlank(message = "Lastname is mandatory field!")
-    @Size(max = 50, message = "Firstname should be smaller than {max} characters")
     private String lastName;
 
-    @NotBlank(message = "E-mail is mandatory field!")
-    @Size(max = 50, message = "E-mail should be smaller than {max} characters")
-    @Email
     private String email;
 
 }

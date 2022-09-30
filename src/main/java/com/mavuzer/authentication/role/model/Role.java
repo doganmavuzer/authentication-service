@@ -1,6 +1,7 @@
 package com.mavuzer.authentication.role.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -11,6 +12,7 @@ import javax.validation.constraints.Size;
 
 @Document(collection = "role")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Role {

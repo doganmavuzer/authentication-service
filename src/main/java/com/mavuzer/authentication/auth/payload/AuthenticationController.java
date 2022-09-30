@@ -5,7 +5,6 @@ import com.mavuzer.authentication.auth.dto.LoginRequest;
 import com.mavuzer.authentication.auth.jwt.JwtTokenProvider;
 import com.mavuzer.authentication.auth.provider.PassEncoder;
 import com.mavuzer.authentication.exception.UserAlreadyExist;
-import com.mavuzer.authentication.exception.UserNotFoundException;
 import com.mavuzer.authentication.role.model.Role;
 import com.mavuzer.authentication.users.dto.UserCreateDto;
 import com.mavuzer.authentication.users.dto.UserDto;

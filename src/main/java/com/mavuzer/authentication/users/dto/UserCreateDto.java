@@ -34,6 +34,4 @@ public class UserCreateDto {
     @NotBlank(message = "Password is mandatory field!")
     @Size(max = 200, message = "Password should be smaller than {max} characters")
     private String password;
-
-    private Set<Role> roles;
 }
