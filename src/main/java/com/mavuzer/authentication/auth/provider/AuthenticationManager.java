@@ -11,6 +11,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -31,7 +33,7 @@ public class AuthenticationManager implements ReactiveAuthenticationManager {
                 .switchIfEmpty(Mono.empty())
                 .map(valid -> {
                     Claims claims = jwtTokenProvider.getTokenBody(authToken);
-                    Set<Role> rolesMap = claims.get("roles",  Set.class);
+                    Set<Role> rolesMap = new HashSet<>(claims.get("roles",  ArrayList.class));
                     return new UsernamePasswordAuthenticationToken(
                             username,
                             null,

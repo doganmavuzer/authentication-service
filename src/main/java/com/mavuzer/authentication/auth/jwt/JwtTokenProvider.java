@@ -65,10 +65,11 @@ public class JwtTokenProvider {
     public boolean validateToken(String token){
         log.debug("Token validation is started!");
         try {
-            Jwts.parserBuilder().setSigningKey(this.secretKey).build().parseClaimsJwt(token);
+            Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();;
             return true;
         }catch (JwtException | IllegalArgumentException e){
-            log.error("Error occured during token validation {}",e.getMessage());
+            e.printStackTrace();
+            log.error("Error occurred during token validation {}",e.getMessage());
             return false;
         }
     }
